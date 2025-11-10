@@ -1,6 +1,33 @@
 using DiscreteNaturalNeighbors
 using Test
+using JLD2
 
 @testset "DiscreteNaturalNeighbors.jl" begin
-    # Write your tests here.
+    
+    # --- test 2D interpolation routines --- #
+    dict = load("data/data_2D.jld2")
+    points, values = dict["points"], dict["values"]
+
+    xRange, yRange = -5:0.05:5, -5:0.05:5
+    interp_a = interpolate2D(points, values, (xRange, yRange));
+    interp_b = interpolateND(points, values, (xRange, yRange));
+
+    @test size(interp_a) == (201, 201)
+    @test size(interp_b) == (201, 201)
+    @test interp_a[107, 48] ≈ 0.5589506815196893
+    @test all(interp_a .≈ interp_b)
+
+
+    # --- test 3D interpolation routines --- #
+    dict = load("data/data_3D.jld2")
+    points, values = dict["points"], dict["values"]
+
+    xRange, yRange, zRange = -5:0.1:5, -5:0.1:5, -5:0.1:5
+    interp = interpolate3D(points, values, (xRange, yRange, zRange));
+
+    @test size(interp) == (101, 101, 101)
+    @test interp[64, 37, 51] ≈ 0.1835211232592374
+
+
+
 end
