@@ -1,10 +1,9 @@
 using DiscreteNaturalNeighbors
 using Test
+using JLD2
 
 @testset "DiscreteNaturalNeighbors.jl" begin
     
-    using JLD2
-
     # --- test 2D interpolation routines --- #
     dict = load("data/data_2D.jld2")
     points, values = dict["points"], dict["values"]
