@@ -18,4 +18,16 @@ using JLD2
     @test all(interp_a .≈ interp_b)
 
 
+    # --- test 3D interpolation routines --- #
+    dict = load("data/data_3D.jld2")
+    points, values = dict["points"], dict["values"]
+
+    xRange, yRange, zRange = -5:0.1:5, -5:0.1:5, -5:0.1:5
+    interp = interpolate3D(points, values, (xRange, yRange, zRange));
+
+    @test size(interp) == (101, 101, 101)
+    @test interp[64, 37, 51] ≈ 0.1835211232592374
+
+
+
 end
