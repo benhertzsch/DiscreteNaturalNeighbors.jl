@@ -1,3 +1,7 @@
+using Pkg
+Pkg.activate(@__DIR__)
+Pkg.instantiate()
+
 using DiscreteNaturalNeighbors
 using Documenter
 
@@ -14,6 +18,8 @@ makedocs(;
     ),
     pages=[
         "Home" => "index.md",
+        "Tutorial" => "tutorial.md",
+        "Reference" => "reference.md"
     ],
 )
 
