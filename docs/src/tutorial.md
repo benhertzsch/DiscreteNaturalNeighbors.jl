@@ -11,6 +11,6 @@ This tutorial demonstrates the use of the DiscreteNaturalNeighbors.jl package fo
 We first look at a 2D interpolation problem and define some function that we want to interpolate
 
 ```@example tutorial1
-using DiscreteNaturalNeighbors
+using DiscreteNaturalNeighbors, Plots
 println("this is running")
 ```
