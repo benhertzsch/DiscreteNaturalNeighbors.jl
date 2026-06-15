@@ -61,7 +61,7 @@ function interpolate_dnn_2D(points, values, (xRange, yRange))
                 grid_val[this_i, this_j]   += values[node_idx]
                 grid_count[this_i, this_j] += 1
             else
-                this_dist = euclidean_dist(this_candidate, node)
+                this_dist = euclidean_dist(p, this_candidate)
                 if this_dist <= node_dist
                     grid_val[this_i, this_j]   += values[node_idx]
                     grid_count[this_i, this_j] += 1
@@ -105,7 +105,7 @@ function interpolate_dnn_2D_(points, values, (xRange, yRange))
                     grid_val[this_i, this_j]   += values[node_idx]
                     grid_count[this_i, this_j] += 1
                 else
-                    this_dist = euclidean_dist(this_candidate, node)
+                    this_dist = euclidean_dist(p, this_candidate)
                     if this_dist <= node_dist
                         grid_val[this_i, this_j]   += values[node_idx]
                         grid_count[this_i, this_j] += 1
@@ -157,7 +157,7 @@ function interpolate_dnn_3D(points, values, (xRange, yRange, zRange))
                 grid_val[this_i, this_j, this_k]   += values[node_idx]
                 grid_count[this_i, this_j, this_k] += 1
             else
-                this_dist = euclidean_dist(this_candidate, node)
+                this_dist = euclidean_dist(p, this_candidate)
                 if this_dist <= node_dist
                     grid_val[this_i, this_j, this_k]   += values[node_idx]
                     grid_count[this_i, this_j, this_k] += 1
@@ -203,7 +203,7 @@ function interpolate_dnn_3D_(points, values, (xRange, yRange, zRange))
                     grid_val[this_i, this_j, this_k]   += values[node_idx]
                     grid_count[this_i, this_j, this_k] += 1
                 else
-                    this_dist = euclidean_dist(this_candidate, node)
+                    this_dist = euclidean_dist(p, this_candidate)
                     if this_dist <= node_dist
                         grid_val[this_i, this_j, this_k]   += values[node_idx]
                         grid_count[this_i, this_j, this_k] += 1
@@ -250,7 +250,7 @@ function interpolate_dnn_ND(points, values, ranges)
                 grid_val[this_idx]   += values[node_idx]
                 grid_count[this_idx] += 1
             else
-                this_dist = euclidean_dist(p_prime, node)
+                this_dist = euclidean_dist(p, p_prime)
                 if this_dist <= node_dist
                     grid_val[this_idx]   += values[node_idx]
                     grid_count[this_idx] += 1
@@ -292,7 +292,7 @@ function interpolate_dnn_ND_(points, values, ranges)
                 grid_val[this_idx]   += values[node_idx]
                 grid_count[this_idx] += 1
             else
-                this_dist = euclidean_dist(p_prime, node)
+                this_dist = euclidean_dist(p, p_prime)
                 if this_dist <= node_dist
                     grid_val[this_idx]   += values[node_idx]
                     grid_count[this_idx] += 1
