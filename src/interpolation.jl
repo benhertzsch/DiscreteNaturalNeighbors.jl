@@ -1,5 +1,10 @@
 euclidean_dist(p1, p2) = norm(p1 - p2)
 
+"""
+    interpolate_dnn(points, values, ranges; verbose=nothing)
+
+Evaluate the Discrete Natural Neighbors interpolation of the values on the points on the range.
+"""
 function interpolate_dnn(points, values, ranges; verbose=nothing)
     @assert (typeof(points) == Matrix{Float64} && length(size(points)) == 2 && size(points)[2] > 1) (
         "Enter points as Matrix{Float64} of shape (N, ndim) with ndim > 1."

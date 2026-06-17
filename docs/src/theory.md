@@ -6,7 +6,6 @@ CurrentModule = DiscreteNaturalNeighbors
 
 This page discusses the natural neighbors interpolation method and its efficient implementation using discretized in-cell counts.
 
-
 ## Natural neighbor interpolation
 
 A common computational problem involves the interpolation of a smooth field $f \in \mathbb{R}$ from a set of unstructured points $\{\bm{p}_i\} \in \mathbb{R}^d$ (with $d \geq 2$) with associated values $\{v_i\}  \in \mathbb{R}$. The goal is to interpolate the field $f$ at some positions $\bm{x}_i \in \mathbb{R}^d$. We consider a scalar field $f$ here for simplicity, although the method can be trivially used to construct the components of e.g. a vector or tensor field $f \in \mathbb{R}^m$

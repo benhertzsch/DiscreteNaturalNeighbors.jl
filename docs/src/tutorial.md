@@ -4,7 +4,7 @@ CurrentModule = DiscreteNaturalNeighbors
 
 # Tutorial
 
-This tutorial demonstrates the use of the DiscreteNaturalNeighbors.jl package for the interpolation of a function from an unstructured grid in $n \geq 2$ dimensions.
+This tutorial demonstrates the use of the *DiscreteNaturalNeighbors.jl* package for the interpolation of a function from an unstructured grid in $n \geq 2$ dimensions.
 
 ## 2D interpolation
 
