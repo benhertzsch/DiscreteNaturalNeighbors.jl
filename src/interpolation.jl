@@ -1,9 +1,11 @@
-euclidean_dist(p1, p2) = norm(p1 - p2)
-
 """
     interpolate_dnn(points, values, ranges; verbose=nothing)
 
-Evaluate the Discrete Natural Neighbors interpolation of the values on the points on the range.
+Evaluate the discrete natural neighbor interpolation of `points` (size `(N, n)`)
+with `values` (size `(N,)`) on a regular grid (mesh) defined by
+`ranges` (list of `n` ranges). If keyword argument `verbose` is unspecified,
+default to no output for 2D interpolation, and progress bar for higher dimensions;
+change by setting to `true` or `false`.
 """
 function interpolate_dnn(points, values, ranges; verbose=nothing)
     @assert (typeof(points) == Matrix{Float64} && length(size(points)) == 2 && size(points)[2] > 1) (
@@ -66,7 +68,7 @@ function interpolate_dnn_2D(points, values, (xRange, yRange))
                 grid_val[this_i, this_j]   += values[node_idx]
                 grid_count[this_i, this_j] += 1
             else
-                this_dist = euclidean_dist(p, this_candidate)
+                this_dist = norm(p, this_candidate)
                 if this_dist <= node_dist
                     grid_val[this_i, this_j]   += values[node_idx]
                     grid_count[this_i, this_j] += 1
@@ -110,7 +112,7 @@ function interpolate_dnn_2D_(points, values, (xRange, yRange))
                     grid_val[this_i, this_j]   += values[node_idx]
                     grid_count[this_i, this_j] += 1
                 else
-                    this_dist = euclidean_dist(p, this_candidate)
+                    this_dist = norm(p, this_candidate)
                     if this_dist <= node_dist
                         grid_val[this_i, this_j]   += values[node_idx]
                         grid_count[this_i, this_j] += 1
@@ -162,7 +164,7 @@ function interpolate_dnn_3D(points, values, (xRange, yRange, zRange))
                 grid_val[this_i, this_j, this_k]   += values[node_idx]
                 grid_count[this_i, this_j, this_k] += 1
             else
-                this_dist = euclidean_dist(p, this_candidate)
+                this_dist = norm(p, this_candidate)
                 if this_dist <= node_dist
                     grid_val[this_i, this_j, this_k]   += values[node_idx]
                     grid_count[this_i, this_j, this_k] += 1
@@ -208,7 +210,7 @@ function interpolate_dnn_3D_(points, values, (xRange, yRange, zRange))
                     grid_val[this_i, this_j, this_k]   += values[node_idx]
                     grid_count[this_i, this_j, this_k] += 1
                 else
-                    this_dist = euclidean_dist(p, this_candidate)
+                    this_dist = norm(p, this_candidate)
                     if this_dist <= node_dist
                         grid_val[this_i, this_j, this_k]   += values[node_idx]
                         grid_count[this_i, this_j, this_k] += 1
@@ -255,7 +257,7 @@ function interpolate_dnn_ND(points, values, ranges)
                 grid_val[this_idx]   += values[node_idx]
                 grid_count[this_idx] += 1
             else
-                this_dist = euclidean_dist(p, p_prime)
+                this_dist = norm(p, p_prime)
                 if this_dist <= node_dist
                     grid_val[this_idx]   += values[node_idx]
                     grid_count[this_idx] += 1
@@ -297,7 +299,7 @@ function interpolate_dnn_ND_(points, values, ranges)
                 grid_val[this_idx]   += values[node_idx]
                 grid_count[this_idx] += 1
             else
-                this_dist = euclidean_dist(p, p_prime)
+                this_dist = norm(p, p_prime)
                 if this_dist <= node_dist
                     grid_val[this_idx]   += values[node_idx]
                     grid_count[this_idx] += 1
