@@ -24,7 +24,7 @@ julia> import Pkg; Pkg.add("DiscreteNaturalNeighbors")
 Please have a look at the Tutorial page for details on how to use this package.
 
 ## Contributors
-This code was written by:
+This code was written by
 * Benjamin Hertzsch ([benjamin.hertzsch@ed.ac.uk](mailto:benjamin.hertzsch@ed.ac.uk))
 in collaboration with 
 * Job Feldbrugge ([job.feldbrugge@ed.ac.uk](mailto:job.feldbrugge@ed.ac.uk))
