@@ -11,7 +11,7 @@ This tutorial demonstrates the use of the *DiscreteNaturalNeighbors.jl* package 
 We first look at a 2D interpolation problem and define a function that we want to interpolate.
 
 ```@example tutorial1
-using Plots, DiscreteNaturalNeighbors
+using DiscreteNaturalNeighbors, Plots
 
 function f2D(x,y)
     return 0.1*(y-1)^2 / ( 2 + abs(x)^2)^2 + exp(-0.2*(y-x^2)^2) + exp(-0.4*(y-x)^2) * sin(0.25*(0.2*x^2+y)^2) + 1.2*exp(-((x+2)^2)/0.2 - (y-3.5)^4)
@@ -49,7 +49,7 @@ p2 = heatmap(xRange, yRange, transpose(interp - fun_vals))
 plot(p1, p2, layout=(1, 2), size=(800, 300), xlim=(-5, 5), ylim=(-5,5), aspect_ratio=:equal)
 ```
 
-The interpolation becomes more accurate for larger point sets. As the 2D interpolation is highly efficient even for large data sizes, progress is not displayed by default. A progress bar is enabled by setting the keyword argument `verbose=true`.
+The interpolation becomes more accurate with a larger number of data points. As the 2D interpolation is highly efficient even for large data sizes, progress is not displayed by default. A progress bar is enabled by setting the keyword argument `verbose=true`.
 
 ```@example tutorial1
 NN     = 10000

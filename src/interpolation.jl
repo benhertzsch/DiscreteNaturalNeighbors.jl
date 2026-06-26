@@ -1,3 +1,8 @@
+"""
+    euclidean_dist(p1, p2)
+
+Return the Euclidean distance between two points.
+"""
 euclidean_dist(p1, p2) = norm(p1 - p2)
 
 """
@@ -41,6 +46,13 @@ end
 ## 2D routine
 ###############################################################################
 
+"""
+    interpolate_dnn_2D(points, values, (xRange, yRange))
+
+Evaluate the 2D discrete natural neighbor interpolation of `points` (size `(N, 2)`)
+with `values` (size `(N,)`) on a regular grid (mesh) defined by
+`xRange` and `yRange`.
+"""
 function interpolate_dnn_2D(points, values, (xRange, yRange))
 
     kdtree = KDTree(permutedims(points)) 
@@ -83,7 +95,13 @@ function interpolate_dnn_2D(points, values, (xRange, yRange))
     return interp
 end
 
+"""
+    interpolate_dnn_2D_(points, values, (xRange, yRange))
 
+Evaluate the 2D discrete natural neighbor interpolation of `points` (size `(N, 2)`)
+with `values` (size `(N,)`) on a regular grid (mesh) defined by
+`xRange` and `yRange`. Progress is displayed during the calculation.
+"""
 function interpolate_dnn_2D_(points, values, (xRange, yRange))
 
     kdtree = KDTree(permutedims(points)) 
@@ -134,7 +152,13 @@ end
 ## 3D routine
 ###############################################################################
 
+"""
+    interpolate_dnn_3D(points, values, (xRange, yRange, zRange))
 
+Evaluate the 3D discrete natural neighbor interpolation of `points` (size `(N, 3)`)
+with `values` (size `(N,)`) on a regular grid (mesh) defined by
+`xRange`, `yRange` and `zRange`.
+"""
 function interpolate_dnn_3D(points, values, (xRange, yRange, zRange))
 
     kdtree = KDTree(permutedims(points)) 
@@ -179,7 +203,13 @@ function interpolate_dnn_3D(points, values, (xRange, yRange, zRange))
     return interp
 end
 
+"""
+    interpolate_dnn_3D_(points, values, (xRange, yRange, zRange))
 
+Evaluate the 3D discrete natural neighbor interpolation of `points` (size `(N, 3)`)
+with `values` (size `(N,)`) on a regular grid (mesh) defined by
+`xRange`, `yRange` and `zRange`. Progress is displayed during the calculation.
+"""
 function interpolate_dnn_3D_(points, values, (xRange, yRange, zRange))
 
     kdtree = KDTree(permutedims(points)) 
@@ -231,6 +261,13 @@ end
 ## ND routines
 ###############################################################################
 
+"""
+    interpolate_dnn_ND(points, values, ranges)
+
+Evaluate the nD discrete natural neighbor interpolation of `points` (size `(N, n)`)
+with `values` (size `(N,)`) on a regular grid (mesh) defined by
+`ranges` (list of `n` ranges).
+"""
 function interpolate_dnn_ND(points, values, ranges)
     kdtree = KDTree(permutedims(points))
 
@@ -272,7 +309,13 @@ function interpolate_dnn_ND(points, values, ranges)
     return interp
 end
 
+"""
+    interpolate_dnn_ND_(points, values, ranges)
 
+Evaluate the nD discrete natural neighbor interpolation of `points` (size `(N, n)`)
+with `values` (size `(N,)`) on a regular grid (mesh) defined by
+`ranges` (list of `n` ranges). Progress is displayed during the calculation.
+"""
 function interpolate_dnn_ND_(points, values, ranges)
     kdtree = KDTree(permutedims(points))
 
