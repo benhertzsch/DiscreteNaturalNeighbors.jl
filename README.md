@@ -4,6 +4,8 @@
 [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://benhertzsch.github.io/DiscreteNaturalNeighbors.jl/dev/)
 [![Build Status](https://github.com/benhertzsch/DiscreteNaturalNeighbors.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/benhertzsch/DiscreteNaturalNeighbors.jl/actions/workflows/CI.yml?query=branch%3Amain)
 [![codecov](https://codecov.io/github/benhertzsch/DiscreteNaturalNeighbors.jl/graph/badge.svg?token=KOTN1214G2)](https://codecov.io/github/benhertzsch/DiscreteNaturalNeighbors.jl)
+[![DOI](https://zenodo.org/badge/1091133875.svg)](https://doi.org/10.5281/zenodo.20927236)
+
 
 This package implements the discrete natural neighbor interpolation routine for $n$-dimensional data.
 
